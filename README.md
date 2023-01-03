@@ -18,16 +18,16 @@ This is another DevOps project for the Hexlet course. It deploys a [Redmine](htt
 ### Step 2: Prepare for the deployment
 
 - Install [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) on your machine
-- Setup cloud VM addresses in the [Inveontory](./ansible/inventory.yml)
+- Setup cloud VM addresses in the [Inveontory](./inventory.yml)
 - Setup ssh keys: edit the `~/.ssh/config`
 - Setup environment
-  - Copy [Example vault](./ansible/group_vars/webservers/example_vault.yml) into the [Actual vault](./ansible/group_vars/webservers/vault.yml)
-  - Edit the [Actual vault](./ansible/group_vars/webservers/vault.yml)
+  - Copy [Example vault](./group_vars/webservers/example_vault.yml) into the [Actual vault](./group_vars/webservers/vault.yml)
+  - Edit the [Actual vault](./group_vars/webservers/vault.yml)
   - Encrypt secrets: `cd ansible && make encrypt` and don't forget to store your password somewhere
 
 ### Step 3: Deploy
   
-See the [Makefile](./ansible/Makefile) for all available commands
+See the [Makefile](./Makefile) for all available commands
 
 Example:
 
