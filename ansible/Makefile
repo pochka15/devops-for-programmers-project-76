@@ -1,5 +1,5 @@
 install_roles:
-	ansible-galaxy install -r requirements.yml
+	ansible-galaxy install -r ../requirements.yml
 
 encrypt:
 	ansible-vault encrypt group_vars/webservers/vault.yml
