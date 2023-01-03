@@ -1,0 +1,6 @@
+# vault_redmine_db_postgres: some-domain.railway.app
+# vault_redmine_db_database: railway
+# vault_redmine_db_username: postgres
+# vault_redmine_db_password: password
+# vault_redmine_db_port: "7523"
+# vault_datadog_api_key: some123apiKey

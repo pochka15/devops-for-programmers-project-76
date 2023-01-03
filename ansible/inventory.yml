@@ -5,4 +5,6 @@ all:
     webservers:
       hosts:
         web1:
-          ansible_host: 51.250.83.232
+          ansible_host: 51.250.0.186
+        web2:
+          ansible_host: 51.250.4.66
