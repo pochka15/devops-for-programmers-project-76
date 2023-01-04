@@ -21,4 +21,3 @@
         env_file: "{{ env_file_path }}"
         ports:
           - 80:3000
-          - 443:3000

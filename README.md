@@ -21,9 +21,10 @@ This is another DevOps project for the Hexlet course. It deploys a [Redmine](htt
 - Setup cloud VM addresses in the [Inveontory](./inventory.yml)
 - Setup ssh keys: edit the `~/.ssh/config`
 - Setup environment
-  - Copy [Example vault](./group_vars/webservers/example_vault.yml) into the [Actual vault](./group_vars/webservers/vault.yml)
-  - Edit the [Actual vault](./group_vars/webservers/vault.yml)
-  - Encrypt secrets: `cd ansible && make encrypt` and don't forget to store your password somewhere
+  - Set common variables [vars.yml](./group_vars/all/vars.yml) and secrets in the [vault.yml](./group_vars/all/vault.yml)
+  - Same for the [webservers](./group_vars/webservers)
+  - Create a password in the `<project-root>/vault-password.txt`. It's added to the `.gitignore`. It's necessary to encrypt secrets
+  - Encrypt secrets: `make vault_encrypt VAULT_HOSTS=all && make vault_encrypt VAULT_HOSTS=webservers`.
 
 ### Step 3: Deploy
   
