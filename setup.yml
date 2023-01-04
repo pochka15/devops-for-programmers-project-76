@@ -1,7 +1,7 @@
 ---
 - hosts: all
   gather_facts: no
-  
+
   tasks:
     - name: Install aptitude
       become: yes
@@ -53,26 +53,9 @@
         name: geerlingguy.pip
       vars:
         ansible_become: yes
-        pip_install_packages:
-          - name: docker
-            state: latest
       tags: necessary
 
 - hosts: webservers
   roles:
     - { role: datadog.datadog, become: yes }
-  vars:    
-    datadog_config:
-      logs_enabled: true
-    
-    datadog_checks:
-      http_check:
-        init_config:
-
-        instances:
-          - name: Localhost
-            url: http://localhost
-    
-    network_config:
-      enabled: true
   tags: monitoring

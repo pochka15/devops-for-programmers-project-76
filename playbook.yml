@@ -4,13 +4,13 @@
 
   vars:
     env_file_path: "/tmp/redmine.env"
-  
+
   tasks:
     - name: Copy environment template
       ansible.builtin.template:
         src: environment.j2
         dest: "{{ env_file_path }}"
-  
+
     - name: Start redmine container
       become: yes
       community.docker.docker_container:

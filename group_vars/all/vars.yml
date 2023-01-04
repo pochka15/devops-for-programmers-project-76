@@ -3,3 +3,7 @@ redmine_db_database: "{{ vault_redmine_db_database }}"
 redmine_db_username: "{{ vault_redmine_db_username }}"
 redmine_db_password: "{{ vault_redmine_db_password }}"
 redmine_db_port: "{{ vault_redmine_db_port }}"
+
+pip_install_packages:
+  - name: docker
+    state: latest
