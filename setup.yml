@@ -9,6 +9,7 @@
         name: aptitude
         state: latest
         update_cache: true
+      tags: necessary
 
     - name: Install required system packages
       become: yes
@@ -23,18 +24,21 @@
           - python3-setuptools
         state: latest
         update_cache: true
+      tags: necessary
 
     - name: Add Docker GPG apt Key
       become: yes
       apt_key:
         url: https://download.docker.com/linux/ubuntu/gpg
         state: present
+      tags: necessary
 
     - name: Add Docker Repository
       become: yes
       apt_repository:
         repo: deb https://download.docker.com/linux/ubuntu focal stable
         state: present
+      tags: necessary
 
     - name: Update apt and install docker-ce
       become: yes
@@ -42,6 +46,7 @@
         name: docker-ce
         state: latest
         update_cache: true
+      tags: necessary
 
     - name: Install Docker Module for Python
       include_role:
@@ -51,3 +56,23 @@
         pip_install_packages:
           - name: docker
             state: latest
+      tags: necessary
+
+- hosts: webservers
+  roles:
+    - { role: datadog.datadog, become: yes }
+  vars:    
+    datadog_config:
+      logs_enabled: true
+    
+    datadog_checks:
+      http_check:
+        init_config:
+
+        instances:
+          - name: Localhost
+            url: http://localhost
+    
+    network_config:
+      enabled: true
+  tags: monitoring

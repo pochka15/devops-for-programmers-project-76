@@ -18,10 +18,7 @@ ssh:
 # Deployment
 
 setup:
-	ansible-playbook setup.yml -i inventory.yml --vault-password-file vault-password.txt
-
-setup_monitoring:
-	ansible-playbook setup_monitoring.yml -i inventory.yml --vault-password-file vault-password.txt
+	ansible-playbook setup.yml -i inventory.yml --vault-password-file vault-password.txt --tags $(TAGS)
 
 release:
 	ansible-playbook playbook.yml -i inventory.yml --vault-password-file vault-password.txt

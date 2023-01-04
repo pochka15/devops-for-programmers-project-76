@@ -33,8 +33,9 @@ See the [Makefile](./Makefile) for all available commands
 Example:
 
 ```txt
-cd ansible
-make install_roles setup setup_monitoring release
+make install_roles
+make setup TAGS="necessary,monitoring" # same as make setup TAGS=all
+make release
 ```
 
 ## Links
