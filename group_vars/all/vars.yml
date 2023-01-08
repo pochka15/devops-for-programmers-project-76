@@ -1,3 +1,5 @@
 pip_install_packages:
   - name: docker
     state: latest
+
+env_file_path: "/tmp/redmine.env"

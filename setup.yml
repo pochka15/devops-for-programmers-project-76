@@ -9,7 +9,7 @@
         name: aptitude
         state: latest
         update_cache: true
-      tags: necessary
+      tags: required
 
     - name: Install required system packages
       become: true
@@ -24,21 +24,21 @@
           - python3-setuptools
         state: latest
         update_cache: true
-      tags: necessary
+      tags: required
 
     - name: Add Docker GPG apt Key
       become: true
       apt_key:
         url: https://download.docker.com/linux/ubuntu/gpg
         state: present
-      tags: necessary
+      tags: docker
 
     - name: Add Docker Repository
       become: true
       apt_repository:
         repo: deb https://download.docker.com/linux/ubuntu focal stable
         state: present
-      tags: necessary
+      tags: docker
 
     - name: Update apt and install docker-ce
       become: true
@@ -46,14 +46,14 @@
         name: docker-ce
         state: latest
         update_cache: true
-      tags: necessary
+      tags: docker
 
     - name: Install Docker Module for Python
       include_role:
         name: geerlingguy.pip
       vars:
         ansible_become: true
-      tags: necessary
+      tags: docker
 
 - hosts: webservers
   roles:

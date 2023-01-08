@@ -21,22 +21,16 @@ This is another DevOps project for the Hexlet course. It deploys a [Redmine](htt
 - Setup cloud VM addresses in the [Inveontory](./inventory.yml)
 - Setup ssh keys: edit the `~/.ssh/config`
 - Setup environment
-  - Set common variables [vars.yml](./group_vars/all/vars.yml) and secrets in the [vault.yml](./group_vars/all/vault.yml)
-  - Same for the [webservers](./group_vars/webservers)
+  - Set common variables [vars.yml](./group_vars/all/vars.yml)
+  - Same for the [webservers](./group_vars/webservers) and setup secrets in the [vault.yml](./group_vars/all/vault.yml)
   - Create a password in the `<project-root>/vault-password.txt`. It's added to the `.gitignore`. It's necessary to encrypt secrets
-  - Encrypt secrets: `make vault_encrypt VAULT_HOSTS=all && make vault_encrypt VAULT_HOSTS=webservers`.
+  - Encrypt secrets: `make vault_encrypt`.
 
 ### Step 3: Deploy
   
 See the [Makefile](./Makefile) for all available commands
 
-Example:
-
-```txt
-make install_roles
-make setup TAGS="necessary,monitoring" # same as make setup TAGS=all
-make release
-```
+Example: `make install_roles setup release`
 
 ## Links
 
