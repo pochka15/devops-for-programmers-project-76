@@ -12,7 +12,7 @@
         dest: "{{ env_file_path }}"
 
     - name: Start redmine container
-      become: yes
+      become: true
       community.docker.docker_container:
         name: app
         image: "redmine:latest"
